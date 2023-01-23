@@ -10,6 +10,8 @@ import CoreData
 
 struct ContentView: View {
   
+  @ObservedObject private var model = ContentViewModel()
+  
   var body: some View {
     NavigationView {
       List {
