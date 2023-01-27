@@ -11,13 +11,27 @@ import Combine
 
 final class ContentViewModel: ObservableObject {
   private var cancellables = Set<AnyCancellable>()
+  private let symbols: [String] = [
+    "AAPL",
+    "TSLA",
+    "IBM"
+  ]
+  
+  @Published var stockData: [StockData] = []
   
   init() {
-    getStockData(for: "IBM")
+    loadAllSymbols()
+  }
+  
+  func loadAllSymbols() {
+    stockData = []
+    symbols.forEach { symbol in
+      getStockData(for: symbol)
+    }
   }
   func getStockData(for symbol: String) {
     let url = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=5min&apikey=\(APIKEY)")!
-
+    
     URLSession.shared.dataTaskPublisher(for: url)
       .tryMap { element -> Data in
         guard let httpResponse = element.response as? HTTPURLResponse,
@@ -25,7 +39,7 @@ final class ContentViewModel: ObservableObject {
           throw URLError(.badServerResponse)
         }
         return element.data
-              
+        
       }
       .decode(type: StockData.self, decoder: JSONDecoder())
       .sink { completion in
@@ -36,12 +50,14 @@ final class ContentViewModel: ObservableObject {
         case .finished:
           return
         }
-      } receiveValue: { stockData in
-        print(stockData)
+      } receiveValue: {[weak self] stockData in
+        DispatchQueue.main.async {
+          self?.stockData.append(stockData)
+        }
       }
       .store(in: &cancellables)
     
-
+    
   }
 }
 

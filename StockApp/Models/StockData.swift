@@ -7,44 +7,49 @@
 
 import Foundation
 
-struct StockData: Codable {
+struct StockData: Codable, Identifiable {
   struct MetaData: Codable {
-    let Information: String
-    let Symbol: String
-    let LastRefreshed: String
-    let Interval: String
-    let OutputSize: String
-    let TimeZone: String
+    let information: String
+    let symbol: String
+    let lastRefreshed: String
+    let interval: String
+    let outputSize: String
+    let timeZone: String
     
     private enum CodingKeys: String, CodingKey {
-      case Information = "1. Information"
-      case Symbol = "2. Symbol"
-      case LastRefreshed = "3. Last Refreshed"
-      case Interval = "4. Interval"
-      case OutputSize = "5. Output Size"
-      case TimeZone = "6. Time Zone"
+      case information = "1. Information"
+      case symbol = "2. Symbol"
+      case lastRefreshed = "3. Last Refreshed"
+      case interval = "4. Interval"
+      case outputSize = "5. Output Size"
+      case timeZone = "6. Time Zone"
     }
   }
   
     struct StockDataEntry: Codable {
-      let Open: String
-      let High: String
-      let Low: String
-      let Close: String
-      let Volume: String
+      let open: String
+      let high: String
+      let low: String
+      let close: String
+      let volume: String
       
       private enum CodingKeys: String, CodingKey {
-        case Open = "1. open"
-        case High = "2. high"
-        case Low = "3. low"
-        case Close = "4. close"
-        case Volume = "5. volume"
+        case open = "1. open"
+        case high = "2. high"
+        case low = "3. low"
+        case close = "4. close"
+        case volume = "5. volume"
       }
     }
-  
+  let id = UUID()
+
   
   let metaData: MetaData
   let timeSeries5min: [String: StockDataEntry]
+
+  var latestClose: String {
+    timeSeries5min.first?.value.close ?? ""
+  }
   
   private enum CodingKeys: String, CodingKey {
     case metaData = "Meta Data"
