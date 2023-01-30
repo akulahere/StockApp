@@ -28,6 +28,7 @@ final class ContentViewModel: ObservableObject {
     symbols.forEach { symbol in
       getStockData(for: symbol)
     }
+    print(stockData)
   }
   func getStockData(for symbol: String) {
     let url = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=5min&apikey=\(APIKEY)")!

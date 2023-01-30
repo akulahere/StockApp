@@ -16,6 +16,7 @@
 		66B0A922297A98430006AF03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B0A921297A98430006AF03 /* Preview Assets.xcassets */; };
 		66B0A924297A98430006AF03 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B0A923297A98430006AF03 /* Persistence.swift */; };
 		66B0A927297A98430006AF03 /* StockApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B0A925297A98430006AF03 /* StockApp.xcdatamodeld */; };
+		66E36E562987E57900FC4086 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E36E552987E57900FC4086 /* LineChart.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		66B0A921297A98430006AF03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66B0A923297A98430006AF03 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		66B0A926297A98430006AF03 /* StockApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockApp.xcdatamodel; sourceTree = "<group>"; };
+		66E36E552987E57900FC4086 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +57,7 @@
 			children = (
 				66B0A91C297A98420006AF03 /* ContentView.swift */,
 				667A57FF297EB29B00A93AA6 /* ContentViewModel.swift */,
+				66E36E552987E57900FC4086 /* LineChart.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -180,6 +183,7 @@
 				667A5802297EB2F100A93AA6 /* Apikey.swift in Sources */,
 				66B0A91D297A98420006AF03 /* ContentView.swift in Sources */,
 				667A5800297EB29B00A93AA6 /* ContentViewModel.swift in Sources */,
+				66E36E562987E57900FC4086 /* LineChart.swift in Sources */,
 				66B0A927297A98430006AF03 /* StockApp.xcdatamodeld in Sources */,
 				667A57FC297EA6C500A93AA6 /* StockData.swift in Sources */,
 				66B0A91B297A98420006AF03 /* StockAppApp.swift in Sources */,

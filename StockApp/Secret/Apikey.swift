@@ -7,4 +7,4 @@
 
 import Foundation
 
-public let APIKEY: String = "demo"
+public let APIKEY: String = "LQEKAY7OY0A2LSPT"

@@ -20,7 +20,14 @@ struct ContentView: View {
             HStack {
               Text(stock.metaData.symbol)
               Spacer()
-              RoundedRectangle(cornerRadius: 10)
+              LineChart(values: stock.closeValues)
+                .fill(
+                  LinearGradient(
+                    gradient: Gradient(colors: [.green.opacity(0.7), .green.opacity(0.2), .green.opacity(0)]),
+                    startPoint: .top,
+                    endPoint: .bottom
+                  )
+                )
                 .frame(width: 150, height: 50)
               VStack(alignment: .trailing) {
                 Text(stock.latestClose)
