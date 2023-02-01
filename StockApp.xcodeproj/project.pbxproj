@@ -15,7 +15,7 @@
 		66B0A91F297A98430006AF03 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B0A91E297A98430006AF03 /* Assets.xcassets */; };
 		66B0A922297A98430006AF03 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66B0A921297A98430006AF03 /* Preview Assets.xcassets */; };
 		66B0A924297A98430006AF03 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66B0A923297A98430006AF03 /* Persistence.swift */; };
-		66B0A927297A98430006AF03 /* StockApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66B0A925297A98430006AF03 /* StockApp.xcdatamodeld */; };
+		66D30539298A5F66001EBF71 /* StockApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 66D30537298A5F66001EBF71 /* StockApp.xcdatamodeld */; };
 		66E36E562987E57900FC4086 /* LineChart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66E36E552987E57900FC4086 /* LineChart.swift */; };
 /* End PBXBuildFile section */
 
@@ -29,7 +29,7 @@
 		66B0A91E297A98430006AF03 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		66B0A921297A98430006AF03 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		66B0A923297A98430006AF03 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		66B0A926297A98430006AF03 /* StockApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockApp.xcdatamodel; sourceTree = "<group>"; };
+		66D30538298A5F66001EBF71 /* StockApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = StockApp.xcdatamodel; sourceTree = "<group>"; };
 		66E36E552987E57900FC4086 /* LineChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LineChart.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -89,11 +89,11 @@
 		66B0A919297A98420006AF03 /* StockApp */ = {
 			isa = PBXGroup;
 			children = (
+				66D30537298A5F66001EBF71 /* StockApp.xcdatamodeld */,
 				66B0A91A297A98420006AF03 /* StockAppApp.swift */,
 				667A57FE297EA6DE00A93AA6 /* Content */,
 				66B0A91E297A98430006AF03 /* Assets.xcassets */,
 				66B0A923297A98430006AF03 /* Persistence.swift */,
-				66B0A925297A98430006AF03 /* StockApp.xcdatamodeld */,
 				66B0A920297A98430006AF03 /* Preview Content */,
 				667A57FD297EA6CB00A93AA6 /* Models */,
 				667A5803297EB30A00A93AA6 /* Secret */,
@@ -182,9 +182,9 @@
 				66B0A924297A98430006AF03 /* Persistence.swift in Sources */,
 				667A5802297EB2F100A93AA6 /* Apikey.swift in Sources */,
 				66B0A91D297A98420006AF03 /* ContentView.swift in Sources */,
+				66D30539298A5F66001EBF71 /* StockApp.xcdatamodeld in Sources */,
 				667A5800297EB29B00A93AA6 /* ContentViewModel.swift in Sources */,
 				66E36E562987E57900FC4086 /* LineChart.swift in Sources */,
-				66B0A927297A98430006AF03 /* StockApp.xcdatamodeld in Sources */,
 				667A57FC297EA6C500A93AA6 /* StockData.swift in Sources */,
 				66B0A91B297A98420006AF03 /* StockAppApp.swift in Sources */,
 			);
@@ -389,13 +389,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		66B0A925297A98430006AF03 /* StockApp.xcdatamodeld */ = {
+		66D30537298A5F66001EBF71 /* StockApp.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				66B0A926297A98430006AF03 /* StockApp.xcdatamodel */,
+				66D30538298A5F66001EBF71 /* StockApp.xcdatamodel */,
 			);
-			currentVersion = 66B0A926297A98430006AF03 /* StockApp.xcdatamodel */;
-			path = StockApp.xcdatamodeld;
+			currentVersion = 66D30538298A5F66001EBF71 /* StockApp.xcdatamodel */;
+			name = StockApp.xcdatamodeld;
+			path = Content/StockApp.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

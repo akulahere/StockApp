@@ -15,6 +15,11 @@ struct ContentView: View {
   var body: some View {
     NavigationView {
       List {
+        HStack {
+          TextField("Symbol", text: $model.symbol)
+            .textFieldStyle(RoundedBorderTextFieldStyle())
+          Button("Add", action: model.addStock)
+        }
         if !model.stockData.isEmpty {
           ForEach(model.stockData) { stock in
             HStack {

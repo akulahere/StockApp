@@ -10,6 +10,8 @@ import SwiftUI
 import Combine
 
 final class ContentViewModel: ObservableObject {
+  private let context = PersistenceController.shared.container.viewContext
+  
   private var cancellables = Set<AnyCancellable>()
   private let symbols: [String] = [
     "AAPL",
@@ -18,15 +20,40 @@ final class ContentViewModel: ObservableObject {
   ]
   
   @Published var stockData: [StockData] = []
+  @Published var symbol = ""
+  @Published var stockEntities: [StockEntity] = []
   
   init() {
     loadAllSymbols()
   }
   
+  
+  func loadFromCoreData() {
+    do {
+      stockEntities = try context.fetch(StockEntity.fetchRequest())
+    }
+    catch {
+      print(error)
+    }
+  }
+  
+  func addStock() {
+    let newStock = StockEntity(context: context)
+    newStock.symbol = symbol
+    do {
+      try context.save()
+    }
+    catch {
+      print(error)
+    }
+    getStockData(for: symbol)
+    symbol = ""
+  }
+  
   func loadAllSymbols() {
     stockData = []
-    symbols.forEach { symbol in
-      getStockData(for: symbol)
+    stockEntities.forEach { stockEntity in
+      getStockData(for: stockEntity.symbol ?? "")
     }
     print(stockData)
   }
