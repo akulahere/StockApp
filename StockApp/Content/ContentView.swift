@@ -36,10 +36,10 @@ struct ContentView: View {
                 .frame(width: 150, height: 50)
               VStack(alignment: .trailing) {
                 Text(stock.latestClose)
-                Text("Change")
               }
             }
           }
+          .onDelete(perform: model.delete(at:))
         }
 
       }

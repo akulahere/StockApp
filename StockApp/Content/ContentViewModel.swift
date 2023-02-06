@@ -13,17 +13,14 @@ final class ContentViewModel: ObservableObject {
   private let context = PersistenceController.shared.container.viewContext
   
   private var cancellables = Set<AnyCancellable>()
-  private let symbols: [String] = [
-    "AAPL",
-    "TSLA",
-    "IBM"
-  ]
+
   
   @Published var stockData: [StockData] = []
   @Published var symbol = ""
   @Published var stockEntities: [StockEntity] = []
   
   init() {
+    loadFromCoreData()
     loadAllSymbols()
   }
   
@@ -31,6 +28,7 @@ final class ContentViewModel: ObservableObject {
   func loadFromCoreData() {
     do {
       stockEntities = try context.fetch(StockEntity.fetchRequest())
+      print("Stocks: \(stockEntities)")
     }
     catch {
       print(error)
@@ -46,6 +44,8 @@ final class ContentViewModel: ObservableObject {
     catch {
       print(error)
     }
+    stockEntities.append(newStock)
+    print(stockEntities)
     getStockData(for: symbol)
     symbol = ""
   }
@@ -57,6 +57,21 @@ final class ContentViewModel: ObservableObject {
     }
     print(stockData)
   }
+  
+  func delete(at indexSet: IndexSet) {
+    guard let index = indexSet.first else { return }
+    
+    stockData.remove(at: index)
+    let stockToRemove = stockEntities.remove(at: index)
+    context.delete(stockToRemove)
+    
+    do {
+      try context.save()
+    } catch {
+      print(error)
+    }
+  }
+  
   func getStockData(for symbol: String) {
     let url = URL(string: "https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol=\(symbol)&interval=5min&apikey=\(APIKEY)")!
     
