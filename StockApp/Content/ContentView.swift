@@ -19,6 +19,7 @@ struct ContentView: View {
           TextField("Symbol", text: $model.symbol)
             .textFieldStyle(RoundedBorderTextFieldStyle())
           Button("Add", action: model.addStock)
+            .disabled(!model.symbolValid)
         }
         if !model.stockData.isEmpty {
           ForEach(model.stockData) { stock in

@@ -18,13 +18,21 @@ final class ContentViewModel: ObservableObject {
   @Published var stockData: [StockData] = []
   @Published var symbol = ""
   @Published var stockEntities: [StockEntity] = []
+  @Published var symbolValid = false
   
   init() {
     loadFromCoreData()
     loadAllSymbols()
+    validateSymbolField()
   }
   
-  
+  func validateSymbolField() {
+    $symbol
+      .sink { [weak self] newValue in
+        self?.symbolValid = !newValue.isEmpty
+      }
+      .store(in: &cancellables)
+  }
   func loadFromCoreData() {
     do {
       stockEntities = try context.fetch(StockEntity.fetchRequest())
